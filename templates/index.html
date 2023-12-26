@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flask Dashboard</title>
+    <style>
+        /* Add some basic styling to improve the layout */
+        label,
+        input,
+        textarea,
+        select,
+        button {
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Flask Dashboard</h1>
+    <form action="/process" method="post">
+        <div style="display: flex; flex-wrap: wrap; gap: 20px;">
+
+            <div style="flex: 1;">
+                <label for="duration">Duration of Sentence:</label>
+                <input type="text" id="duration" name="duration" required>
+            </div>
+
+            <div style="flex: 1;">
+                <label for="audio">Hindi Audio Files:</label>
+                <input type="file" id="audio" name="audio" accept=".mp3, .wav" required>
+            </div>
+
+            <div style="flex: 1;">
+                <label for="asr">Possible Hindi ASR Solutions:</label>
+                <textarea id="asr" name="asr" rows="4" cols="50" required></textarea>
+            </div>
+
+            <div style="flex: 1;">
+                <label for="manual_correction_asr">Text Box for Manual Correction (ASR):</label>
+                <textarea id="manual_correction_asr" name="manual_correction_asr" rows="4" cols="50"></textarea>
+            </div>
+
+            <div style="flex: 1;">
+                <button type="submit" name="run_asr">Run ASR</button>
+            </div>
+
+            <!-- Other fields and buttons for punctuation, TTS, etc. -->
+
+            <div style="flex: 1;">
+                <label for="sentence_type">Type of Sentence:</label>
+                <select id="sentence_type" name="sentence_type">
+                    <option value="theory_questions">Theory Questions</option>
+                    <option value="meditation_practice">Meditation Practice Questions</option>
+                    <!-- Add other options as needed -->
+                </select>
+            </div>
+
+            <div style="flex: 1;">
+                <button type="submit" name="run_tts">Run TTS</button>
+            </div>
+
+            <div style="flex: 1;">
+                <label for="original_hindi">Original Hindi:</label>
+                <textarea id="original_hindi" name="original_hindi" rows="4" cols="50" readonly></textarea>
+            </div>
+
+            <div style="flex: 1;">
+                <label for="original_audio">Original Audio:</label>
+                <audio controls id="original_audio" name="original_audio"></audio>
+            </div>
+
+            <div style="flex: 1;">
+                <label for="final_hindi_text">Final Hindi Text:</label>
+                <textarea id="final_hindi_text" name="final_hindi_text" rows="4" cols="50" readonly></textarea>
+            </div>
+
+        </div>
+    </form>
+</body>
+
+</html>
